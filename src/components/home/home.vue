@@ -174,7 +174,6 @@
         this.selectShow = true
       },
       defaultClick () {
-        console.log('defaulClick')
         this.selectShow = false
         let menu = this.$refs['menu']
         removeClass(menu, 'selected')
@@ -208,7 +207,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/home-icon.css"
+  @import "../../common/stylus/icon.css"
   @import "../../common/stylus/variable.styl"
     .home
       position :absolute
