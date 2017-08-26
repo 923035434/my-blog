@@ -41,7 +41,7 @@
       width :100%
       height: 40px
       display :flex
-      margin-bottom :20px
+      margin-bottom :40px
       .back,.share
         flex: 0 0 40px
         padding-left:12px

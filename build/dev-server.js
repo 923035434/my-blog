@@ -21,6 +21,22 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 var app = express()
+
+var singerData = require('../SingerList.json')//拿到数据
+
+var apiRoutes = express.Router()//创建一个路由对象
+
+//设置路由
+apiRoutes.get('/singer',function(req,res){
+  res.json({
+    errnum:0,
+    data:singerData
+  })
+})
+
+app.use('/api',apiRoutes)//注册路由
+
+
 var compiler = webpack(webpackConfig)
 
 var devMiddleware = require('webpack-dev-middleware')(compiler, {

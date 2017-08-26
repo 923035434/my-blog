@@ -38,7 +38,7 @@
       width :30px
       height: 100%
       .icon-music_search
-        font-size :24px
+        font-size :20px
     .input_wrapper
       display :inline-block
       vertical-align :top
@@ -46,9 +46,9 @@
       height: 100%
       input
         transition :all 0.5s
-        height :24px
+        height :20px
         width:100px
-        border-radius:24px
+        border-radius:20px
         border :1px solid #c9c9cd
         outline :none
         appearance:none
