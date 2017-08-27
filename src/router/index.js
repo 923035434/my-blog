@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import singer from '../components/singer/singer.vue'
 import home from '../components/home/home.vue'
 import blogs from '../components/blogs/blogs.vue'
-
+import SingerDetail from '../components/SingerDetail/SingerDetail.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -18,7 +18,12 @@ export default new Router({
     },
     {
       path: '/musicBox',
-      component: singer
+      component: singer,
+      children: [
+        {
+          path: ':id',
+          component: SingerDetail
+        }]
     },
     {
       path: '/blogs',
