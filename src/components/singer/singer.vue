@@ -36,6 +36,7 @@
   import search from '../../base/search/search.vue'
   import {getSingerList} from '../../api/singer'
   import scroll from '../../base/scroll/scroll.vue'
+  import {mapMutations} from 'vuex'
   // import {addClass, removeClass} from '../../common/js/dom'
   export default {
     data () {
@@ -61,10 +62,14 @@
         return this.singerList[this.selectIndex].name
       },
       linkClick () {
+        this.setSinger(this.singerList[this.selectIndex])
         this.$router.push({
           path: '/musicBox/' + this.singerList[this.selectIndex].singerId + ''
         })
-      }
+      },
+      ...mapMutations({
+        setSinger:'SET_SINGER'
+      })
     },
     components: {
       search,

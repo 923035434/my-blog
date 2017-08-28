@@ -1,4 +1,367 @@
-{
+[
+  {
+    "musicId": "102636799",
+    "name": "演员",
+    "singer": {
+      "singerId": "5062",
+      "name": "薛之谦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002J4UUk29y8BY.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003y8dsH2wBHlo.jpg?max_age=2592000",
+    "albumName": "绅士"
+  },
+  {
+    "musicId": "102425546",
+    "name": "绅士",
+    "singer": {
+      "singerId": "5062",
+      "name": "薛之谦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002J4UUk29y8BY.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003y8dsH2wBHlo.jpg?max_age=2592000",
+    "albumName": "绅士"
+  },
+  {
+    "musicId": "740362",
+    "name": "你不知道的事",
+    "singer": {
+      "singerId": "265",
+      "name": "王力宏",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001JDzPT3JdvqK.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002iWU6B2ZvA8V.jpg?max_age=2592000",
+    "albumName": "十八般武艺"
+  },
+  {
+    "musicId": "102436266",
+    "name": "房间",
+    "singer": {
+      "singerId": "161444",
+      "name": "刘瑞琦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000003bQEFA3KrvLI.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000028jczm4NAXV2.jpg?max_age=2592000",
+    "albumName": "私房歌"
+  },
+  {
+    "musicId": "102340966",
+    "name": "彩虹",
+    "singer": {
+      "singerId": "4558",
+      "name": "周杰伦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M0000025NhlN2yWrP4.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002eFUFm2XYZ7z.jpg?max_age=2592000",
+    "albumName": "我很忙"
+  },
+  {
+    "musicId": "449200",
+    "name": "说好的幸福呢",
+    "singer": {
+      "singerId": "4558",
+      "name": "周杰伦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M0000025NhlN2yWrP4.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Neh8l0uciQZ.jpg?max_age=2592000",
+    "albumName": "魔杰座"
+  },
+  {
+    "musicId": "447253",
+    "name": "小酒窝",
+    "singer": {
+      "singerId": "4286",
+      "name": "林俊杰",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001BLpXF2DyJe2.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002g6zv02X7SNi.jpg?max_age=2592000",
+    "albumName": "JJ陆"
+  },
+  {
+    "musicId": "102415346",
+    "name": "她说",
+    "singer": {
+      "singerId": "4286",
+      "name": "林俊杰",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001BLpXF2DyJe2.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000TuW8h0AH2n4.jpg?max_age=2592000",
+    "albumName": "她说 概念自选辑"
+  },
+  {
+    "musicId": "9063002",
+    "name": "江南",
+    "singer": {
+      "singerId": "4286",
+      "name": "林俊杰",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001BLpXF2DyJe2.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000y5gq7449K9I.jpg?max_age=2592000",
+    "albumName": "第二天堂"
+  },
+  {
+    "musicId": "718479",
+    "name": "枫",
+    "singer": {
+      "singerId": "4558",
+      "name": "周杰伦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M0000025NhlN2yWrP4.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000024bjiL2aocxT.jpg?max_age=2592000",
+    "albumName": "十一月的萧邦"
+  },
+  {
+    "musicId": "97745",
+    "name": "开不了口",
+    "singer": {
+      "singerId": "4558",
+      "name": "周杰伦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M0000025NhlN2yWrP4.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000",
+    "albumName": "范特西"
+  },
+  {
+    "musicId": "97743",
+    "name": "安静",
+    "singer": {
+      "singerId": "4558",
+      "name": "周杰伦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M0000025NhlN2yWrP4.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000I5jJB3blWeN.jpg?max_age=2592000",
+    "albumName": "范特西"
+  },
+  {
+    "musicId": "5106590",
+    "name": "意外",
+    "singer": {
+      "singerId": "5062",
+      "name": "薛之谦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002J4UUk29y8BY.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000QgFcm0v8WaF.jpg?max_age=2592000",
+    "albumName": "意外"
+  },
+  {
+    "musicId": "5106430",
+    "name": "你还要我怎样",
+    "singer": {
+      "singerId": "5062",
+      "name": "薛之谦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002J4UUk29y8BY.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000QgFcm0v8WaF.jpg?max_age=2592000",
+    "albumName": "意外"
+  },
+  {
+    "musicId": "107192538",
+    "name": "刚刚好",
+    "singer": {
+      "singerId": "5062",
+      "name": "薛之谦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002J4UUk29y8BY.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000dcZ9I1nzO62.jpg?max_age=2592000",
+    "albumName": "初学者"
+  },
+  {
+    "musicId": "9059607",
+    "name": "不要说话",
+    "singer": {
+      "singerId": "143",
+      "name": "陈奕迅",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000003Nz2So3XXYek.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000J1pJ50cDCVE.jpg?max_age=2592000",
+    "albumName": "不想放手"
+  },
+  {
+    "musicId": "5445223",
+    "name": "你给我听好",
+    "singer": {
+      "singerId": "143",
+      "name": "陈奕迅",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000003Nz2So3XXYek.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003rytri2FHG3V.jpg?max_age=2592000",
+    "albumName": "rice & shine"
+  },
+  {
+    "musicId": "1251167",
+    "name": "葡萄成熟时",
+    "singer": {
+      "singerId": "143",
+      "name": "陈奕迅",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000003Nz2So3XXYek.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003J6fvc0bVJon.jpg?max_age=2592000",
+    "albumName": "U-87"
+  },
+  {
+    "musicId": "1249550",
+    "name": "富士山下",
+    "singer": {
+      "singerId": "143",
+      "name": "陈奕迅",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000003Nz2So3XXYek.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003nMzes28P7wv.jpg?max_age=2592000",
+    "albumName": "What's Going On…?"
+  },
+  {
+    "musicId": "3961",
+    "name": "玻璃之情",
+    "singer": {
+      "singerId": "87",
+      "name": "张国荣",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M0000001v4XU1cZxPy.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003sROxT3qirjb.jpg?max_age=2592000",
+    "albumName": "一切随风"
+  },
+  {
+    "musicId": "102193483",
+    "name": "我们的歌",
+    "singer": {
+      "singerId": "265",
+      "name": "王力宏",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001JDzPT3JdvqK.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002Zwh5p4HgecI.jpg?max_age=2592000",
+    "albumName": "改变自己"
+  },
+  {
+    "musicId": "5089468",
+    "name": "拥抱",
+    "singer": {
+      "singerId": "74",
+      "name": "五月天",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000000Sp0Bz4JXH0o.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000qgRaP0UX5Vg.jpg?max_age=2592000",
+    "albumName": "他&他 好男真情歌"
+  },
+  {
+    "musicId": "447807",
+    "name": "突然好想你",
+    "singer": {
+      "singerId": "74",
+      "name": "五月天",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000000Sp0Bz4JXH0o.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000020I7sO0ayXhN.jpg?max_age=2592000",
+    "albumName": "后青春期的诗"
+  },
+  {
+    "musicId": "5131916",
+    "name": "我不愿让你一个人",
+    "singer": {
+      "singerId": "74",
+      "name": "五月天",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000000Sp0Bz4JXH0o.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000006MmDz4Hl2Ud.jpg?max_age=2592000",
+    "albumName": "步步 自选作品辑 the Best of 1999-2013"
+  },
+  {
+    "musicId": "858884",
+    "name": "温柔",
+    "singer": {
+      "singerId": "74",
+      "name": "五月天",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000000Sp0Bz4JXH0o.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000019L7Sk2Soi6Y.jpg?max_age=2592000",
+    "albumName": "跨世纪金曲精选"
+  },
+  {
+    "musicId": "108409713",
+    "name": "你不是真正的快乐",
+    "singer": {
+      "singerId": "69393",
+      "name": "丁毅",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M0000025vDsb1OsnVt.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002olwUB3FKnQC.jpg?max_age=2592000",
+    "albumName": "中华好民歌第二季 第8期"
+  },
+  {
+    "musicId": "107726174",
+    "name": "好好 (想把你写成一首歌)",
+    "singer": {
+      "singerId": "74",
+      "name": "五月天",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000000Sp0Bz4JXH0o.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002fRO0N4FftzY.jpg?max_age=2592000",
+    "albumName": "自传"
+  },
+  {
+    "musicId": "107709592",
+    "name": "后来的我们",
+    "singer": {
+      "singerId": "74",
+      "name": "五月天",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000000Sp0Bz4JXH0o.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000002fRO0N4FftzY.jpg?max_age=2592000",
+    "albumName": "自传"
+  },
+  {
+    "musicId": "101847263",
+    "name": "晴天",
+    "singer": {
+      "singerId": "161444",
+      "name": "刘瑞琦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000003bQEFA3KrvLI.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000036XVtV4VvtcX.jpg?max_age=2592000",
+    "albumName": "再次寻找周杰伦"
+  },
+  {
+    "musicId": "101847273",
+    "name": "给我一首歌的时间",
+    "singer": {
+      "singerId": "161444",
+      "name": "刘瑞琦",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000003bQEFA3KrvLI.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M0000036XVtV4VvtcX.jpg?max_age=2592000",
+    "albumName": "再次寻找周杰伦"
+  },
+  {
+    "musicId": "5206512",
+    "name": "尚好的青春",
+    "singer": {
+      "singerId": "109",
+      "name": "孙燕姿",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001pWERg3vFgg8.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003C5V434Vbijq.jpg?max_age=2592000",
+    "albumName": "克卜勒"
+  },
+  {
+    "musicId": "5159439",
+    "name": "克卜勒",
+    "singer": {
+      "singerId": "109",
+      "name": "孙燕姿",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001pWERg3vFgg8.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000003C5V434Vbijq.jpg?max_age=2592000",
+    "albumName": "克卜勒"
+  },
+  {
+    "musicId": "95287",
+    "name": "害怕",
+    "singer": {
+      "singerId": "4286",
+      "name": "林俊杰",
+      "img": "https://y.gtimg.cn/music/photo_new/T001R300x300M000001BLpXF2DyJe2.jpg?max_age=2592000"
+    },
+    "imgUrl": "https://y.gtimg.cn/music/photo_new/T002R300x300M000000y5gq7449K9I.jpg?max_age=2592000",
+    "albumName": "第二天堂"
+  }
+]
 
-  "url":"http://ws.stream.qqmusic.qq.com/201697348.m4a?fromtag=46"
-}
+

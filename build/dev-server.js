@@ -23,7 +23,7 @@ var proxyTable = config.dev.proxyTable
 var app = express()
 
 var singerData = require('../SingerList.json')//拿到数据
-
+var songData = require('../sonList.json')//拿到song数据
 var apiRoutes = express.Router()//创建一个路由对象
 
 //设置路由
@@ -31,6 +31,20 @@ apiRoutes.get('/singer',function(req,res){
   res.json({
     errnum:0,
     data:singerData
+  })
+})
+//{
+//
+//  "url":"http://ws.stream.qqmusic.qq.com/201697348.m4a?fromtag=46"
+//}
+apiRoutes.get('/song',function(req,res){
+  var singerId =  req.query.singerId
+  var data = songData.filter((song)=>{
+    return song.singer.singerId === singerId
+  });
+  res.json({
+    errnum:0,
+    data:data
   })
 })
 
