@@ -1,5 +1,6 @@
 
-
-const  state = {
-  singer:{}
+const state = {
+  singer: {}
 }
+
+export default state

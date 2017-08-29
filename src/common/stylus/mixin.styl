@@ -9,6 +9,19 @@ no-wrap()
   text-overflow: ellipsis
   overflow: hidden
   white-space: nowrap
+  //1px border
+
+boder-1px($color)
+  position: relative
+  &::after
+    display: block
+    position: absolute
+    left: 0px
+    bottom: 0px
+    width:100%
+    background-color: $color
+    height:1px
+    content: ''
 
 // 扩展点击区域
 extend-click()
@@ -20,3 +33,4 @@ extend-click()
     left: -10px
     right: -10px
     bottom: -10px
+

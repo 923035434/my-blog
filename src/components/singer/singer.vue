@@ -1,25 +1,26 @@
 <template>
-  <transition name="leftSlide">
-    <div class="singer">
-      <div class="topBar">
-        <div class="back"><i class="icon-home"></i></div>
-        <div class="title"><i>歌手</i></div>
-        <div class="share"><i></i></div>
-      </div>
+  <div class="wrapper">
+    <transition name="leftSlide">
+      <div class="singer">
+        <div class="topBar">
+          <div class="back"><i class="icon-home"></i></div>
+          <div class="title"><i>歌手</i></div>
+          <div class="share"><i></i></div>
+        </div>
 
-      <div class="singerList_wrapper">
-        <scroll :scrollX="true" class="scroll_wrapper">
-          <ul ref="singerListDom" class="singerList">
-            <li @click="selectSinger(index)" class="singerItem" v-for="(singer,index) in singerList">
-              <div v-bind:style="{ height: awatarWidth+'px', width: awatarWidth+'px'}" class="avatar">
-                <img :class="{'selected': isSelected(index)}" :src="singer.img" >
-              </div>
-              <div v-show="isSelected(index)" class="Name">{{singer.name}}</div>
-            </li>
-          </ul>
-        </scroll>
-      </div>
-      <div ref="contentBoxDom" class="content_wrapper">
+        <div class="singerList_wrapper">
+          <scroll :scrollX="true" class="scroll_wrapper">
+            <ul ref="singerListDom" class="singerList">
+              <li @click="selectSinger(index)" class="singerItem" v-for="(singer,index) in singerList">
+                <div v-bind:style="{ height: awatarWidth+'px', width: awatarWidth+'px'}" class="avatar">
+                  <img :class="{'selected': isSelected(index)}" :src="singer.img" >
+                </div>
+                <div v-show="isSelected(index)" class="Name">{{singer.name}}</div>
+              </li>
+            </ul>
+          </scroll>
+        </div>
+        <div ref="contentBoxDom" class="content_wrapper">
           <div class="content">
             <div class="title">{{selectSingerName}}</div>
             <div class="text">这家伙很懒什么也没说。<span style="opacity: 0">（哦，不，其实是我很懒，懒得去抓数据，就这样,拜。）</span></div>
@@ -27,9 +28,11 @@
               <span class="dec">点击查看歌曲列表</span><span class="icon"><i class="icon-back"></i></span>
             </div>
           </div>
+        </div>
       </div>
-    </div>
-  </transition>
+    </transition>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script type="text/ecmascript-6">
@@ -68,7 +71,7 @@
         })
       },
       ...mapMutations({
-        setSinger:'SET_SINGER'
+        setSinger: 'SET_SINGER'
       })
     },
     components: {
