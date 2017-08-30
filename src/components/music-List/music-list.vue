@@ -11,7 +11,7 @@
       <div class="song-list-wrapper">
           <div class="song-list">
             <ul>
-              <li class="song-item" v-for="(song, index) in songs">
+              <li @click="itemClick(index)" class="song-item" v-for="(song, index) in songs">
                 <h2 class="name">{{song.name}}</h2>
                 <p class="desc">{{getDesc(song)}}</p>
               </li>
@@ -29,6 +29,7 @@
 import scroll from '../../base/scroll/scroll.vue'
 import loading from '../../base/loading/loading.vue'
 import {prefixStyle} from '../../common/js/dom'
+import {mapActions} from 'vuex'
 const RESERVED_HEIGHT = 40
 const transform = prefixStyle('transform')
 const backdrop = prefixStyle('backdrop')
@@ -64,8 +65,6 @@ export default {
   mounted () {
     this.imageHeight = this.$refs.bgImage.clientHeight
     this.minTransalteY = -this.imageHeight + RESERVED_HEIGHT
-    console.log(this.imageHeight)
-    console.log(this.minTransalteY)
     this.$refs.list.$el.style.top = `${this.imageHeight}px`
   },
   methods: {
@@ -77,7 +76,16 @@ export default {
     },
     back () {
       this.$router.back()
-    }
+    },
+    itemClick (index) {
+      this.selectPlay({
+        list: this.songs,
+        index: index
+      })
+    },
+    ...mapActions([
+      'selectPlay'
+    ])
   },
   watch: {
     scrollY (newVal) {

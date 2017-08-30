@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
     <transition name="leftSlide">
-      <div class="singer">
+      <div  class="singer">
         <div class="topBar">
-          <div class="back"><i class="icon-home"></i></div>
+          <div @click="backHome" class="back"><i class="icon-home"></i></div>
           <div class="title"><i>歌手</i></div>
           <div class="share"><i></i></div>
         </div>
@@ -70,6 +70,9 @@
           path: '/musicBox/' + this.singerList[this.selectIndex].singerId + ''
         })
       },
+      backHome () {
+        this.$router.push('/home')
+      },
       ...mapMutations({
         setSinger: 'SET_SINGER'
       })
@@ -114,9 +117,9 @@
     top: 0
     left: 0
     &.leftSlide-enter-active,.leftSlide-leave-active
-      transition: all 0.5s
+      transition: all 0.3s
     &.leftSlide-enter,.leftSlide-leave-to
-      transform:translateX(100%)
+      transform: translate3d(100%,0,0)
     .topBar
       width :100%
       height: 40px
