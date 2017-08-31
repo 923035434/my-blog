@@ -8,6 +8,7 @@
   import MusicList from '../music-List/music-list.vue'
   import {getSingerDetail} from '../../api/singer'
   import {mapGetters} from 'vuex'
+  import {createSong} from '../../common/js/song'
   export default {
     data () {
       return {
@@ -34,7 +35,11 @@
         }
         getSingerDetail(this.singer.singerId).then(res => {
           if (res.errnum === 0) {
-            this.songs = res.data
+            let songs = []
+            for (var i = 0; i < res.data.length; i++) {
+              songs.push(createSong(res.data[i]))
+            }
+            this.songs = songs
           }
         })
       }
