@@ -18,6 +18,9 @@ const mutations = {
   },
   [types.SET_SEQUENCE_LIST] (state, sequenceList) {
     state.sequenceList = sequenceList
+  },
+  [types.SET_FULL_SCREEN] (state, isfull) {
+    state.fullScreen = isfull
   }
 }
 

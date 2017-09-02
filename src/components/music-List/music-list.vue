@@ -143,7 +143,7 @@ export default {
         display: block
         padding: 10px
         font-size: $font-size-large-x
-        color: $color-theme
+        color: $color-text
     .title
       position: absolute
       top: 0
@@ -154,7 +154,7 @@ export default {
       text-align: center
       line-height: 40px
       font-size: $font-size-large
-      color: $color-theme
+      color: $color-text
       no-wrap()
     .bg-image
       position :relative

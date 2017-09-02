@@ -222,8 +222,8 @@
         .content-wrapper
           width :100%
           .header
-            background :url("topBackground.jpg") no-repeat
-            background-position :center 0px
+            background :url("topBackground2.jpg") no-repeat
+            background-position :bottom
             width :100%
             height :667px
             position relative
