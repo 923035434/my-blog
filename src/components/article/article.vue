@@ -6,39 +6,18 @@
           <div @click="back" class="back"><i class="icon-back"></i></div>
           <div class="mini-title">
             <transition name="fade">
-              <span class="text" v-show="showMiniTitle">你好啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</span>
+              <span class="text" v-show="showMiniTitle">{{selectBlog.title}}</span>
             </transition>
           </div>
           <div class="menu"></div>
         </div>
       </div>
       <div ref="titleDom" class="article-title">
-        <h2 class="title">为什么你知道你是谁</h2>
+        <h2 class="title">{{selectBlog.title}}</h2>
       </div>
       <div class="article-content">
         <scroll @scroll="contentScroll" :probeType="3" :listenScroll="true" class="content">
-          <div class="content-text">
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道
-            你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道
-            你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道
-            你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
-            为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁为什么你知道你是谁
+          <div v-html="selectBlog.content" class="content-text">
           </div>
         </scroll>
       </div>
@@ -53,9 +32,20 @@
   const transform = prefixStyle('transform')
   const titleMinHeight = 37
   export default {
+    props: {
+      selectBlog: {
+        type: Object,
+        default: {}
+      }
+    },
     data () {
       return {
         showMiniTitle: false
+      }
+    },
+    created () {
+      if (!this.selectBlog.id) {
+        this.back()
       }
     },
     methods: {
@@ -84,6 +74,8 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="stylus" rel="stylesheet/stylus">
+  @import "../../common/stylus/quill.snow.css"
+  @import "~highlight.js/styles/monokai-sublime.css"
   @import "../../common/stylus/icon.css"
   @import "../../common/stylus/mixin.styl"
   .article
@@ -164,4 +156,6 @@
         color : #000
         .content-text
           background-color: #fff
+          img
+            width:100%
 </style>

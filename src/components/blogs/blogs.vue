@@ -7,36 +7,20 @@
       </div>
     </div>
     <div class="classification-wrapper">
-      <h2 class="classification">ALL</h2>
+      <h2 class="classification">{{blogTypes[selectTypeIndex].name}}</h2>
     </div>
     <div class="content-wrapper">
       <div class="content">
         <ul>
-          <li @click="showArticle" class="item">
+          <li @click="showArticle(blog)" v-for="blog in blogTypes[selectTypeIndex].blogs" class="item">
             <div class="img-wrapper">
-              <img src="./liTestImg.png" class="img">
+              <img :src="blog.img" class="img">
             </div>
             <div class="content-text">
-              <h2 class="title">标题</h2>
-              <div class="text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
+              <h2 class="title">{{blog.title}}</h2>
+              <div class="text">{{blog.desc}}</div>
               <div class="desc">
-                <span class="time">2017/9/2</span>
-                <span class="views">
-                  <i class="icon-icon-views"></i>
-                  <span class="number">20</span>
-                </span>
-              </div>
-            </div>
-          </li>
-          <li class="item">
-            <div class="img-wrapper">
-              <img src="./liTestImg.png" class="img">
-            </div>
-            <div class="content-text">
-              <h2 class="title">标题</h2>
-              <div class="text">哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</div>
-              <div class="desc">
-                <span class="time">2017/9/2</span>
+                <span class="time">{{blog.time}}</span>
                 <span class="views">
                   <i class="icon-icon-views"></i>
                   <span class="number">20</span>
@@ -55,25 +39,50 @@
         <div class="title"><i class="icon-menu"></i></div>
         <div class="selecter">
           <ul>
-            <li class="selecter-item selected">.net</li>
-            <li class="selecter-item">javascript</li>
-            <li class="selecter-item">数据库</li>
+            <li class="selecter-item" :class="{'selected':selectTypeIndex===index}" @click="selectTypePage(index)" v-for="(blogType,index) in blogTypes">{{blogType.name}}</li>
           </ul>
         </div>
       </div>
     </transition>
-    <router-view></router-view>
+    <router-view :selectBlog="selectBlog"></router-view>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
+    import {createdBlogType, createblogTypes} from '../../common/js/blogType'
+    import {getAllBlogs} from '../../api/blog'
     export default {
       data () {
         return {
-          selecterShow: false
+          selecterShow: false,
+          selectTypeIndex: 0,
+          blogTypes: [],
+          selectBlog: {}
         }
       },
+      created () {
+        getAllBlogs().then((res) => {
+          let result = JSON.parse(res)
+          if (result.code !== 0) {
+            console.log('getAllBlogs错误')
+            return
+          }
+          let blogTypes = createblogTypes(result.data)
+          let allBlog = []
+          for (var index in blogTypes) {
+            allBlog = allBlog.concat(blogTypes[index].blogs)
+          }
+          let all = createdBlogType(-1, 'ALL', '0', allBlog)
+          blogTypes.unshift(all)
+          this.blogTypes = blogTypes
+          console.log(this.blogTypes)
+        })
+      },
       methods: {
+        selectTypePage (index) {
+          this.selectTypeIndex = index
+          this.closeSelecter()
+        },
         back () {
           this.$router.push('/home')
         },
@@ -83,8 +92,9 @@
         closeSelecter () {
           this.selecterShow = false
         },
-        showArticle () {
-          this.$router.push({path: '/blogs/123'})
+        showArticle (blog) {
+          this.$router.push({path: '/blogs/' + blog.id})
+          this.selectBlog = blog
         }
       },
       computed: {
@@ -176,17 +186,13 @@
               .views
                 flex :1
                 text-align :right
-
-
-
-
     .selecter-wrapper
       position :fixed
       top: 0
       left :0
       right :0
       bottom :0
-      background-color: #fff
+      background-color: rgba(255,255,255,0.95)
       padding :0 35px 0 35px
       &.fade-enter-active,&.fade-leave-active
         transition:all 0.5s

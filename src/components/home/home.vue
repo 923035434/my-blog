@@ -2,16 +2,16 @@
   <div class="home">
     <scroll class="content-scroll" :click="true" >
         <div v-on:click="defaultClick" class="content-wrapper">
-          <div class="header">
+          <div class="header" :style="{'background-image':bgImg.M_HomeImg}">
             <div class="top_bar">
               <span ref="menu" @click.stop="selectMenu" class="menu"><i class="icon-icon-menu"></i></span>
               <span v-if="false" class="share"><i class="icon-icon-share"></i></span>
             </div>
             <div class="user-content">
-              <div class="avatar"></div>
-              <div class="name">刘小先森。</div>
-              <div class="message icon-icon-message">一个从朝阳行业转世投胎的小小程序员。</div>
-              <div class="address icon-icon-address">广州</div>
+              <div class="avatar" :style="{'background-image':baseInfo.avatar}"></div>
+              <div class="name">{{baseInfo.userName}}</div>
+              <div class="message icon-icon-message">{{baseInfo.signature}}</div>
+              <div class="address icon-icon-address">{{baseInfo.address}}</div>
               <div v-on:click="showMessage" class="btn_box">
                 留言
               </div>
@@ -111,21 +111,36 @@
   import scroll from '../../base/scroll/scroll.vue'
   import velocity from 'velocity-animate'
   import {prefixStyle, addClass, removeClass} from '../../common/js/dom'
-
+  import {getBaseInfo} from '../../api/baseInfo'
   const transform = prefixStyle('transform')
   const opacity = prefixStyle('opacity')
 
   export default {
+    props: {
+      bgImg: {
+        type: Object,
+        default: {}
+      }
+    },
     data () {
       return {
         messageWrapperShow: false,
         messageBoxShow: false,
         sendBtnShow: false,
         envelopeShow: false,
-        selectShow: false
+        selectShow: false,
+        baseInfo: {}
       }
     },
     created () {
+      getBaseInfo().then((res) => {
+        let result = JSON.parse(res)
+        if (result.code !== 0) {
+          console.log('getBaseInfo错误')
+          return
+        }
+        this.baseInfo = result.data
+      })
     },
     methods: {
       showMessage () {
@@ -152,16 +167,10 @@
         let messageBox = this.$refs['messageBox']
         velocity(el, { opacity: 1, scale: 1 }, { duration: 300 })
         velocity(messageBox, { rotateZ: '90deg', scale: 0.3 }, { duration: 300, complete: () => { velocity(messageBox, { bottom: '-3%', opacity: 0 }, { duration: 800, complete: () => { velocity(top, { rotateX: '180deg' }, { duration: 300, complete: () => { velocity(el, { translateX: '500px' }, { duration: 300, complete: done }) } }) } }) } })
-       // this.resetMessageAll(el)
       },
       sendAfterEnter (el, done) {
         let top = this.$refs['top']
         let messageBox = this.$refs['messageBox']
-//        top.style[transform] = 'rotateX(0deg)'
-//        messageBox.style['opacity'] = 1
-//        messageBox.style[transform] = 'rotateZ(0deg)'
-//        messageBox.style['bottom'] = '30%'
-//        el.style[transform] = 'translateX(0px)'
         this.hiddenMessageBox()
         velocity(top, { rotateX: '0deg' })
         velocity(messageBox, { opacity: 1, rotateZ: '0deg', scale: 1, bottom: '30%' })
@@ -222,7 +231,8 @@
         .content-wrapper
           width :100%
           .header
-            background :url("topBackground5.jpg") no-repeat
+            background-image :url("topBackground5.jpg")
+            background-repeat :no-repeat
             background-position :bottom
             background-size :cover
             width :100%
@@ -271,7 +281,8 @@
               color :#000
               .avatar
                 position: absolute
-                background :url("avatar1.jpg") center
+                background-image :url("avatar1.jpg")
+                background-position :center
                 background-size :72px
                 width :72px
                 height:72px
@@ -281,7 +292,7 @@
               .btn_box
                 position: absolute
                 right :20px
-                bottom :80px
+                bottom :105px
                 width:110px
                 height :35px
                 cursor :pointer
@@ -472,8 +483,6 @@
                   flex :1
                   color :#908484
                   font-size :11px
-
-
 
 
   @keyframes slide-in{
