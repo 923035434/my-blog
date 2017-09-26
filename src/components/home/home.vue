@@ -2,13 +2,13 @@
   <div class="home">
     <scroll class="content-scroll" :click="true" >
         <div v-on:click="defaultClick" class="content-wrapper">
-          <div class="header" :style="{'background-image':bgImg.M_HomeImg}">
+          <div class="header" v-bind:style="{'background-image':'url(' + bgImg.homeImg + ')'}">
             <div class="top_bar">
               <span ref="menu" @click.stop="selectMenu" class="menu"><i class="icon-icon-menu"></i></span>
               <span v-if="false" class="share"><i class="icon-icon-share"></i></span>
             </div>
             <div class="user-content">
-              <div class="avatar" :style="{'background-image':baseInfo.avatar}"></div>
+              <div class="avatar" v-bind:style="{'background-image':'url(' + baseInfo.avatar + ')'}"></div>
               <div class="name">{{baseInfo.userName}}</div>
               <div class="message icon-icon-message">{{baseInfo.signature}}</div>
               <div class="address icon-icon-address">{{baseInfo.address}}</div>
@@ -36,15 +36,15 @@
                   <div ref="messageBox" v-show="messageBoxShow" class="message-board">
                     <div class="input-wrapper">
                       <div class="tab-name">Name</div>
-                      <input type="text" placeholder="请输入你的姓名">
+                      <input v-model="message.name" type="text" placeholder="请输入你的姓名">
                     </div>
                     <div class="input-wrapper">
                       <div class="tab-name">Email</div>
-                      <input type="text" placeholder="请输入你的邮箱">
+                      <input v-model="message.email" type="text" placeholder="请输入你的邮箱">
                     </div>
                     <div class="textarea-wrapper">
                       <div class="tab-name">Message</div>
-                      <textarea id="message-input" rows="4" name="message">
+                      <textarea  v-model="message.text" id="message-input" rows="4" name="message">
 
                       </textarea>
                     </div>
@@ -66,6 +66,9 @@
                     <div class="envelope-surface">
                     </div>
                   </div>
+                </transition>
+                <transition name="down">
+                  <div v-show="message.isShowTip" class="tip-wrapper">{{message.tipMessage}}</div>
                 </transition>
               </div>
             </transition>
@@ -112,6 +115,7 @@
   import velocity from 'velocity-animate'
   import {prefixStyle, addClass, removeClass} from '../../common/js/dom'
   import {getBaseInfo} from '../../api/baseInfo'
+  import {sendMessage} from '../../api/message'
   const transform = prefixStyle('transform')
   const opacity = prefixStyle('opacity')
 
@@ -129,7 +133,14 @@
         sendBtnShow: false,
         envelopeShow: false,
         selectShow: false,
-        baseInfo: {}
+        baseInfo: {},
+        message: {
+          name: '',
+          email: '',
+          text: '',
+          isShowTip: false,
+          tipMessage: ''
+        }
       }
     },
     created () {
@@ -155,7 +166,39 @@
         this.envelopeShow = false
       },
       showEnvelop () {
+        let m = this.message
+        if (m.name === '' || m.email === '' || m.text === '') {
+          this.showMessageTip('请输入完整的信息哟!')
+          return
+        }
+        let emailRegExg = /^(\w)+(\.\w+)*@(\w)+((\.\w+)+)$/
+        if (!emailRegExg.test(m.email)) {
+          this.showMessageTip('请输入正确的邮箱哟!')
+          return
+        }
+        let time = (new Date()).getTime().toString()
+        let param = {
+          Name: m.name,
+          Email: m.email,
+          Content: m.text,
+          Time: time
+        }
+        sendMessage(param).then((res) => {
+          let result = JSON.parse(res)
+          if (result.code !== 0) {
+            console.log(result.message)
+          }
+        })
         this.envelopeShow = true
+      },
+      showMessageTip (message) {
+        clearTimeout(time)
+        let m = this.message
+        m.tipMessage = message
+        m.isShowTip = true
+        let time = setTimeout(() => {
+          m.isShowTip = false
+        }, 2000)
       },
       senBeforeEnter (el) {
         el.style[transform] = 'scale(0.5)'
@@ -231,7 +274,6 @@
         .content-wrapper
           width :100%
           .header
-            background-image :url("topBackground5.jpg")
             background-repeat :no-repeat
             background-position :bottom
             background-size :cover
@@ -281,7 +323,6 @@
               color :#000
               .avatar
                 position: absolute
-                background-image :url("avatar1.jpg")
                 background-position :center
                 background-size :72px
                 width :72px
@@ -434,6 +475,21 @@
                   transform-origin: 100% 100%
                   transition:all 0.5s
 
+              .tip-wrapper
+                position :absolute
+                top :25px
+                left: 25%
+                width :50%
+                height: 16px
+                padding: 10px
+                text-align :center
+                border-radius: 16px
+                color : #b0b0b0
+                background-color: #fff
+                &.down-enter-active,&.down-leave-active
+                  transition: all 0.5s cubic-bezier(.56,-0.31,.55,.99)
+                &.down-enter,&.down-leave-to
+                  transform :translateY(-100px)
       .select-wrapper
         position :fixed
         top: 0

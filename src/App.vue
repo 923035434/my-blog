@@ -9,7 +9,7 @@
         <div class="wave"></div>
         <div class="floor">
           <div class="text-wrapper">
-            <span class="name">利</span><span class="say">你好哇!</span>
+            <span class="name"><logo-L height="34" color="#fff"></logo-L></span><span class="say">你好哇!</span>
           </div>
         </div>
       </div>
@@ -19,6 +19,7 @@
 
 <script type="text/ecmascript-6">
   import player from './components/player/player.vue'
+  import logoL from './base/logo_L/logo_L.vue'
   import {getMImg} from './api/bgImg'
   export default {
     name: 'app',
@@ -42,7 +43,8 @@
       })
     },
     components: {
-      player
+      player,
+      'logo-L': logoL
     }
   }
 </script>
@@ -91,7 +93,7 @@
       bottom :0px
       left :0px
       width: 100%
-      height: 12%
+      height: 90px
       background-color: #fff
       .text-wrapper
         width: 100%
@@ -102,13 +104,14 @@
           display :inline-block
           width: 40px
           height: 40px
-          padding:6px
+          padding:8px
           border-radius :6px
           background-color: #1EE494
           font-family "Meiryo UI"
           font-size: 40px
           margin-right:20px
         .say
+          display :inline-block
           color :#c0c0c0
           font-size: 18px
 

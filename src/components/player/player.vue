@@ -46,7 +46,8 @@
               <i @click="next" class="icon-music_right_button"></i>
             </div>
             <div class="icon i-right">
-              <i class="icon-music_not_like"></i>
+              <i v-show="!isLike" @click.stop.self="likeSong" class="icon-music_not_like"></i>
+              <i v-show="isLike" @click.stop.self="noLikeSong" style="color: #f44336" class="icon-music_like"></i>
             </div>
           </div>
         </div>
@@ -71,6 +72,7 @@
   import {playMode} from '../../common/js/config'
   import {shuffle} from '../../common/js/Util'
   import velocity from 'velocity-animate'
+  import {saveStore, getStore} from '../../common/js/store'
   export default {
     computed: {
       iconMode () {
@@ -102,7 +104,8 @@
     data () {
       return {
         songReady: false,
-        currentTime: 0
+        currentTime: 0,
+        isLike: false
       }
     },
     created () {
@@ -188,6 +191,14 @@
         this.$refs.audio.play()
         this.setPlayingState = true
       },
+      likeSong () {
+        this.isLike = true
+        saveStore('likeSongList', this.currentSong.id, this.currentSong.name)
+      },
+      noLikeSong () {
+        this.isLike = false
+        saveStore('likeSongList', this.currentSong.id, null)
+      },
       afterEnter () {
       },
       enter () {
@@ -224,6 +235,12 @@
     },
     watch: {
       currentSong (newSong, oldSong) {
+        let likeSong = getStore('likeSongList', newSong.id, null)
+        if (likeSong !== null) {
+          this.isLike = true
+        } else {
+          this.isLike = false
+        }
         if (!newSong.musicId) {
           return
         }

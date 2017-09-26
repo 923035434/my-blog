@@ -6,9 +6,9 @@
 
 <script type="text/ecmascript-6">
   import MusicList from '../music-List/music-list.vue'
-  import {getSingerDetail} from '../../api/singer'
+  import {getSongForSinger} from '../../api/song'
   import {mapGetters} from 'vuex'
-  import {createSong} from '../../common/js/song'
+  import {createSongListForData} from '../../common/js/song'
   export default {
     data () {
       return {
@@ -29,18 +29,17 @@
     },
     methods: {
       _getDetail () {
-        if (!this.singer.singerId) {
+        if (!this.singer.id) {
           this.$router.push('/musicBox')
           return
         }
-        getSingerDetail(this.singer.singerId).then(res => {
-          if (res.errnum === 0) {
-            let songs = []
-            for (var i = 0; i < res.data.length; i++) {
-              songs.push(createSong(res.data[i]))
-            }
-            this.songs = songs
+        getSongForSinger(this.singer.id).then(res => {
+          let result = JSON.parse(res)
+          if (result.code !== 0) {
+            console.log('getSongForSinger错误')
+            return
           }
+          this.songs = createSongListForData(result.data, this.singer)
         })
       }
     },

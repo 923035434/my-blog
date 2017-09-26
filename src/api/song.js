@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-export function getSinger () {
-  const url = '/api/Singer'
+export function getSongForSinger (singerId) {
+  const url = '/api/singer/' + singerId + '/song'
   return axios({
     url: url,
     method: 'GET'

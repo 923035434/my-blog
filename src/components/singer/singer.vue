@@ -23,7 +23,7 @@
         <div ref="contentBoxDom" class="content_wrapper">
           <div class="content">
             <div class="title">{{selectSingerName}}</div>
-            <div class="text">这家伙很懒什么也没说。<span style="opacity: 0">（哦，不，其实是我很懒，懒得去抓数据，就这样,拜。）</span></div>
+            <!--<div class="text">这家伙很懒什么也没说。<span style="opacity: 0">（哦，不，其实是我很懒，懒得去抓数据，就这样,拜。）</span></div>-->
             <div @click="linkClick" class="link">
               <span class="dec">点击查看歌曲列表</span><span class="icon"><i class="icon-back"></i></span>
             </div>
@@ -37,9 +37,10 @@
 
 <script type="text/ecmascript-6">
   import search from '../../base/search/search.vue'
-  import {getSingerList} from '../../api/singer'
+  import {getSinger} from '../../api/singer'
   import scroll from '../../base/scroll/scroll.vue'
   import {mapMutations} from 'vuex'
+  import {createSingerListForData} from '../../common/js/singer'
   // import {addClass, removeClass} from '../../common/js/dom'
   export default {
     data () {
@@ -51,6 +52,17 @@
       }
     },
     computed: {
+    },
+    mounted () {
+      getSinger().then((res) => {
+        let result = JSON.parse(res)
+        if (result.code !== 0) {
+          console.log('getSingerList错误')
+          return
+        }
+        this.singerList = createSingerListForData(result.data)
+        this.selectSingerName = this.singerList[0].name
+      })
     },
     methods: {
       selectSinger (index) {
@@ -80,14 +92,6 @@
     components: {
       search,
       scroll
-    },
-    mounted () {
-      getSingerList().then((data) => {
-        if (data.errnum === 0) {
-          this.singerList = data.data
-          this.selectSingerName = this.singerList[0].name
-        }
-      })
     },
     watch: {
       singerList () {
@@ -173,13 +177,14 @@
       background-size :auto 100%
       background-origin:content-box
       background-repeat :no-repeat
+      background-position: center center
       .content
         width: 80%
-        height:180px
+        height:89px
         background-color: #fff
         position :absolute
         left :10%
-        top :40%
+        bottom :15%
         box-sizing :border-box
         padding :20px
         .title

@@ -1,6 +1,6 @@
 <template>
   <div class="blogs">
-    <div class="head-wrapper">
+    <div class="head-wrapper" v-bind:style="{'background-image': headerImg}">
       <div class="head">
         <div @click="back" class="back"><i class="icon-home"></i></div>
         <div  class="menu"><i @click="openSelecter" class="icon-music_list_menu"></i></div>
@@ -52,12 +52,23 @@
     import {createdBlogType, createblogTypes} from '../../common/js/blogType'
     import {getAllBlogs} from '../../api/blog'
     export default {
+      props: {
+        bgImg: {
+          type: Object,
+          default: {}
+        }
+      },
       data () {
         return {
           selecterShow: false,
           selectTypeIndex: 0,
           blogTypes: [],
           selectBlog: {}
+        }
+      },
+      computed: {
+        headerImg () {
+          return 'url(' + this.bgImg.blogImg + ')'
         }
       },
       created () {
@@ -75,7 +86,6 @@
           let all = createdBlogType(-1, 'ALL', '0', allBlog)
           blogTypes.unshift(all)
           this.blogTypes = blogTypes
-          console.log(this.blogTypes)
         })
       },
       methods: {
@@ -96,8 +106,6 @@
           this.$router.push({path: '/blogs/' + blog.id})
           this.selectBlog = blog
         }
-      },
-      computed: {
       }
     }
 </script>
@@ -110,7 +118,6 @@
     .head-wrapper
       width: 100%
       height: 200px
-      background :url("./logTopBakcground.jpg")
       background-size :cover
       .head
         width 100%

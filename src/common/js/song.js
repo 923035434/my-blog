@@ -1,5 +1,6 @@
 export default class Song {
-  constructor ({musicId, name, singer, imgUrl, albumName, url}) {
+  constructor (id, musicId, name, singer, imgUrl, albumName, url) {
+    this.id = id
     this.musicId = musicId
     this.name = name
     this.singer = singer
@@ -9,13 +10,11 @@ export default class Song {
   }
 }
 
-export function createSong (musicData) {
-  return new Song({
-    musicId: musicData.musicId,
-    name: musicData.name,
-    singer: musicData.singer,
-    imgUrl: musicData.imgUrl,
-    albumName: musicData.albumName,
-    url: 'http://ws.stream.qqmusic.qq.com/' + musicData.musicId + '.m4a?fromtag=46'
-  })
+export function createSongListForData (data, singer) {
+  let list = []
+  for (var item in data) {
+    list.push(new Song(data[item].id, data[item].musicId, data[item].name, singer, data[item].imgUrl, data[item].albumName, data[item].url))
+  }
+  return list
 }
+
