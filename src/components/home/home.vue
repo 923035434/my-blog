@@ -17,12 +17,12 @@
               </div>
               <div class="data-wrapper">
                 <div class="data-item">
-                  <p class="item-name icon-icon-views">views</p>
-                  <p class="number">12</p>
+                  <p class="item-name icon-icon-views">view</p>
+                  <p class="number">{{count.view}}</p>
                 </div>
                 <div class="data-item">
-                  <p class="item-name icon-icon-blogs">blogs</p>
-                  <p class="number">100</p>
+                  <p class="item-name icon-icon-blogs">blog</p>
+                  <p class="number">{{count.blog}}</p>
                 </div>
                 <!--<div class="data-item">-->
                   <!--<p class="item-name icon-icon-likes">likes</p>-->
@@ -115,6 +115,7 @@
   import velocity from 'velocity-animate'
   import {prefixStyle, addClass, removeClass} from '../../common/js/dom'
   import {getBaseInfo} from '../../api/baseInfo'
+  import {getCount} from '../../api/blog'
   import {sendMessage} from '../../api/message'
   const transform = prefixStyle('transform')
   const opacity = prefixStyle('opacity')
@@ -140,20 +141,35 @@
           text: '',
           isShowTip: false,
           tipMessage: ''
-        }
+        },
+        count: {}
       }
     },
     created () {
-      getBaseInfo().then((res) => {
-        let result = JSON.parse(res)
-        if (result.code !== 0) {
-          console.log('getBaseInfo错误')
-          return
-        }
-        this.baseInfo = result.data
-      })
+      this._getBaseInfo()
+      this._getCount()
     },
     methods: {
+      _getCount () {
+        getCount().then((res) => {
+          let result = JSON.parse(res)
+          if (result.code !== 0) {
+            console.log('getCount错误')
+            return
+          }
+          this.count = result.data
+        })
+      },
+      _getBaseInfo () {
+        getBaseInfo().then((res) => {
+          let result = JSON.parse(res)
+          if (result.code !== 0) {
+            console.log('getBaseInfo错误')
+            return
+          }
+          this.baseInfo = result.data
+        })
+      },
       showMessage () {
         this.messageWrapperShow = true
         this.messageBoxShow = true

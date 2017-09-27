@@ -45,7 +45,7 @@
     },
     created () {
       if (!this.selectBlog.id) {
-        this.back()
+        this.$router.push('/blogs')
       }
     },
     methods: {

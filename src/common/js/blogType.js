@@ -18,7 +18,7 @@ export function createblogTypes (blogsData) {
   for (let i = 0; i < blogsData.length; i++) {
     let blogs = []
     for (let j = 0; j < blogsData[i].blogs.length; j++) {
-      let blog = new Blog(blogsData[i].blogs[j].Id, blogsData[i].blogs[j].Title, blogsData[i].blogs[j].Description, blogsData[i].blogs[j].ImgUrl, blogsData[i].blogs[j].HtmlContent, blogsData[i].blogs[j].Time, blogsData[i].blogs[j].BlogTypeId)
+      let blog = new Blog(blogsData[i].blogs[j].Id, blogsData[i].blogs[j].Title, blogsData[i].blogs[j].Description, blogsData[i].blogs[j].ImgUrl, blogsData[i].blogs[j].HtmlContent, blogsData[i].blogs[j].Time, blogsData[i].blogs[j].BlogTypeId, blogsData[i].blogs[j].Views)
       blogs.push(blog)
     }
     let blogType = new BlogType(blogsData[i].id, blogsData[i].name, blogsData[i].rank, blogs)

@@ -23,7 +23,7 @@
                 <span class="time">{{blog.time}}</span>
                 <span class="views">
                   <i class="icon-icon-views"></i>
-                  <span class="number">20</span>
+                  <span class="number">{{blog.views}}</span>
                 </span>
               </div>
             </div>
@@ -50,7 +50,7 @@
 
 <script type="text/ecmascript-6">
     import {createdBlogType, createblogTypes} from '../../common/js/blogType'
-    import {getAllBlogs} from '../../api/blog'
+    import {getAllBlogs, addViews} from '../../api/blog'
     export default {
       props: {
         bgImg: {
@@ -103,6 +103,12 @@
           this.selecterShow = false
         },
         showArticle (blog) {
+          addViews(blog.id).then((res) => {
+            let result = JSON.parse(res)
+            if (result.code !== 0) {
+              console.log('addViews错误')
+            }
+          })
           this.$router.push({path: '/blogs/' + blog.id})
           this.selectBlog = blog
         }

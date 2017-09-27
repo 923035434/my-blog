@@ -5,7 +5,7 @@
     </keep-alive>
     <player></player>
     <transition name="fade">
-      <div @click="loaderShow=false" v-show="loaderShow" class="loader-wrapper">
+      <div v-show="loaderShow" class="loader-wrapper">
         <div class="wave"></div>
         <div class="floor">
           <div class="text-wrapper">

@@ -1,5 +1,5 @@
 export default class Blog {
-  constructor (id, title, desc, img, content, time, typeId) {
+  constructor (id, title, desc, img, content, time, typeId, views) {
     this.id = id
     this.title = title
     this.desc = desc
@@ -7,6 +7,7 @@ export default class Blog {
     this.content = content
     this.time = timeConvert(time)
     this.typeId = typeId
+    this.views = views
   }
 }
 
