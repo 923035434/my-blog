@@ -20,7 +20,7 @@
                   <p class="item-name icon-icon-views">view</p>
                   <p class="number">{{count.view}}</p>
                 </div>
-                <div class="data-item">
+                <div @click.stop="selectMenu" class="data-item">
                   <p class="item-name icon-icon-blogs">blog</p>
                   <p class="number">{{count.blog}}</p>
                 </div>
