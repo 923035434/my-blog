@@ -1,5 +1,5 @@
 # my-blog
-> 该项目为博客的后台控制的前端页面
+> 该项目为博客移动端展示页面
 #### 采用框架以及技术
 1. vue全家桶      [地址](https://cn.vuejs.org/)
 2. highlight.js（代码高亮）     [地址](https://highlightjs.org/)
